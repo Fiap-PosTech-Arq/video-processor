@@ -1,8 +1,11 @@
-# Etapa 1: Build (Construção do app com Maven)
-FROM maven:3.8.6-openjdk-17 AS build
+# Etapa 1: Construção do app com Maven (usando OpenJDK 17)
+FROM eclipse-temurin:17-jdk AS build
 
 # Diretório de trabalho dentro do contêiner
 WORKDIR /app
+
+# Instalar Maven
+RUN apt-get update && apt-get install -y maven
 
 # Copiar o pom.xml e baixar as dependências
 COPY pom.xml .
@@ -11,10 +14,10 @@ RUN mvn dependency:go-offline
 # Copiar o código-fonte da aplicação
 COPY src ./src
 
-# Compilar a aplicação Spring Boot
+# Construa a aplicação Spring Boot com JDK 17
 RUN mvn clean package -DskipTests
 
-# Etapa 2: Imagem de execução (executar o app com FFmpeg)
+# Etapa 2: Imagem de execução (executar o app com OpenJDK 17 e FFmpeg)
 FROM openjdk:17-slim
 
 # Instalar FFmpeg
