@@ -113,6 +113,25 @@
 			<artifactId>spring-test</artifactId>
 			<version>5.3.20</version>  <!-- Certifique-se de usar a versão correspondente ao seu Spring Boot -->
 		</dependency>
+			<!-- Dependência do Jackson Databind -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>2.15.2</version> <!-- Use a versão mais recente disponível -->
+			</dependency>
+			<!-- Dependência do Jackson Core (necessária para o Jackson funcionar corretamente) -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-core</artifactId>
+				<version>2.15.2</version> <!-- Use a versão mais recente disponível -->
+			</dependency>
+
+			<!-- Dependência do Jackson Annotations (opcional, mas pode ser útil para algumas funcionalidades) -->
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-annotations</artifactId>
+				<version>2.15.2</version> <!-- Use a versão mais recente disponível -->
+			</dependency>
 
 		<!-- Spring Boot Starter for AWS (for common AWS integrations) -->
 		<dependency>
